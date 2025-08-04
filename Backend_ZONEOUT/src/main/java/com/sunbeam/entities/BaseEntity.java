@@ -21,7 +21,7 @@ import lombok.ToString;
 public class BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long id;
+	public Long id;	
 	 @CreationTimestamp
 	 @Column(name = "created_date", updatable = false)
 	 private LocalDateTime createdAt;

@@ -1,9 +1,13 @@
 package com.sunbeam.entities;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +33,8 @@ public class User extends BaseEntity {
 	private String mobileNo;
 	@Enumerated(EnumType.STRING)
 	@Column(length = 30, name = "user_role")
-	public Roles user;
-	
+	public Roles user;		
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Booking> bookings;
+
 }
